@@ -9,5 +9,28 @@ object Raindrops{
         return fs
     }
 
-    fun convert(input: Int): String = "Pling"
+    fun convert(input: Int): String {
+        val result = StringBuilder();
+        println(println("getFactors($input): -${getFactors(input)}-"))
+        getFactors(input).forEach(){
+            println("it: -$it-")
+            when(it){
+                3 -> result.append("Pling")
+                5 -> result.append("Plang")
+                7 -> result.append("Plong")
+            }
+        }
+        if (result.toString().isEmpty()) result.append(input.toString())
+        println("result: -$result-")
+        return result.toString()
+    }
+
+    /*
+    https://www.programiz.com/kotlin-programming/examples/factors-number
+    for (i in 1..number) {
+        if (number % i == 0) {
+            print("$i ")
+        }
+    }
+     */
 }

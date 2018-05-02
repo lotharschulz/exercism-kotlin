@@ -34,9 +34,28 @@ class RaindropsTest(val input: Int, val expectedOutput: String) {
 
     @Test
     fun test() {
-        assertEquals(emptyList(), Raindrops.getFactors(-1))
-        assertEquals(listOf(1,2,17,34), Raindrops.getFactors(34))
-        //assertEquals(expectedOutput, Raindrops.convert(input))
+        assertEquals(expectedOutput, Raindrops.convert(input))
+    }
+
+}
+
+@RunWith(Parameterized::class)
+class FactorsTest2(private val input: Int, private val expectedOutput: List<Int>) {
+
+
+    companion object {
+        val e: List<Int> = emptyList()
+        @JvmStatic
+        @Parameterized.Parameters(name = "{index}: factors({0})={1}")
+        fun data() = listOf(
+                arrayOf(-1,e),
+                arrayOf(34,listOf(1,2,17,34))
+        )
+    }
+
+    @Test
+    fun test() {
+        assertEquals(expectedOutput, Raindrops.getFactors(input))
     }
 
 }
