@@ -49,7 +49,8 @@ class FactorsTest2(private val input: Int, private val expectedOutput: List<Int>
         @Parameterized.Parameters(name = "{index}: factors({0})={1}")
         fun data() = listOf(
                 arrayOf(-1,e),
-                arrayOf(34,listOf(1,2,17,34))
+                arrayOf(34,listOf(1,2,17,34)),
+                arrayOf(3125,listOf(1, 5, 25, 125, 625, 3125))
         )
     }
 
