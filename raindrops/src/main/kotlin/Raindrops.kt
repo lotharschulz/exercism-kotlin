@@ -11,9 +11,7 @@ object Raindrops{
 
     fun convert(input: Int): String {
         val result = StringBuilder();
-        println(println("getFactors($input): -${getFactors(input)}-"))
         getFactors(input).forEach(){
-            println("it: -$it-")
             when(it){
                 3 -> result.append("Pling")
                 5 -> result.append("Plang")
@@ -21,7 +19,6 @@ object Raindrops{
             }
         }
         if (result.toString().isEmpty()) result.append(input.toString())
-        println("result: -$result-")
         return result.toString()
     }
 
