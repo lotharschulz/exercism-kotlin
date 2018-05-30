@@ -9,7 +9,7 @@ class HandshakeCalculator{
             val result = StringBuilder()
             var decNmbr = decimalNumber
             while (decNmbr>0){
-                result.append(decimalNumber%2)
+                result.append(decNmbr%2)
                 decNmbr /= 2
             }
             return result.reversed().toString()
