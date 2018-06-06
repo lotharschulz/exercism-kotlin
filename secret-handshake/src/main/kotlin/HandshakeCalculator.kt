@@ -1,18 +1,15 @@
-class HandshakeCalculator{
-    companion object {
-        fun calculateHandshake(decimalNumber: Int): List<Signal>{
-            println(toBinary(decimalNumber))
-            return listOf<Signal>(Signal.WINK)
+object HandshakeCalculator {
+    private val REVERSE_BIT_FLAG = 0b0001_0000
+
+    fun calculateHandshake(n: Int): List<Signal> {
+        val handshakeSignals = (Signal.values()).fold(emptyList<Signal>()) { acc, signal ->
+            if (n.hasBitFlagSet(signal.bitFlag))
+                acc + signal
+            else acc
         }
 
-        fun toBinary(decimalNumber: Int) : String {
-            val result = StringBuilder()
-            var decNmbr = decimalNumber
-            while (decNmbr>0){
-                result.append(decNmbr%2)
-                decNmbr /= 2
-            }
-            return result.reversed().toString()
-        }
+        return if (n.hasBitFlagSet(REVERSE_BIT_FLAG)) handshakeSignals.reversed() else handshakeSignals
     }
 }
+
+fun Int.hasBitFlagSet(bitFlag: Int): Boolean = (this and bitFlag) != 0
