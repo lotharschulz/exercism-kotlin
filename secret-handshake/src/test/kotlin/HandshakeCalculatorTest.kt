@@ -88,4 +88,28 @@ class HandshakeCalculatorTest {
             HandshakeCalculator.calculateHandshake(32))
     }
 
+    @Test
+    fun testHasBitFlagSet(){
+        assertEquals(true,  24.hasBitFlagSet(0b0001_0000), "24 has bit flag set" )
+        assertEquals(true,  25.hasBitFlagSet(0b0001_0000), "25 has bit flag set" )
+        assertEquals(true,  16.hasBitFlagSet(0b0001_0000), "16 has bit flag set" )
+        assertEquals(false,  1.hasBitFlagSet(0b0001_0000), "1 has NO bit flag set" )
+
+        assertEquals(true,  95.hasBitFlagSet(0b0001_0000), "1 has NO bit flag set" )
+        assertEquals(false,  79.hasBitFlagSet(0b0001_0000), "1 has NO bit flag set" )
+        assertEquals(false,  0.hasBitFlagSet(0b0001_0000), "1 has NO bit flag set" )
+        assertEquals(true,  (-1).hasBitFlagSet(0b0001_0000), "-1 has NO bit flag set" )
+        assertEquals(true,  (-15).hasBitFlagSet(0b0001_0000), "-15 has NO bit flag set" )
+        assertEquals(true,  (-16).hasBitFlagSet(0b0001_0000), "-16 has NO bit flag set" )
+        assertEquals(false,  (-17).hasBitFlagSet(0b0001_0000), "-17 has NO bit flag set" )
+
+        assertEquals(true,  95.hasBitFlagSet2(0b0001_0000), "95 has bit flag set" )
+        assertEquals(false,  79.hasBitFlagSet2(0b0001_0000), "95 has bit flag set" )
+        assertEquals(false,  0.hasBitFlagSet2(0b0001_0000), "95 has bit flag set" )
+        assertEquals(true,  (-1).hasBitFlagSet2(0b0001_0000), "-1 has bit flag set" )
+        assertEquals(true,  (-15).hasBitFlagSet2(0b0001_0000), "-15 has bit flag set" )
+        assertEquals(true,  (-16).hasBitFlagSet2(0b0001_0000), "-16 has bit flag set" )
+        assertEquals(false,  (-17).hasBitFlagSet2(0b0001_0000), "-17 has bit flag set" )
+    }
+
 }

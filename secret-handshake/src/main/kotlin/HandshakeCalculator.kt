@@ -13,3 +13,5 @@ object HandshakeCalculator {
 }
 
 fun Int.hasBitFlagSet(bitFlag: Int): Boolean = (this and bitFlag) != 0
+
+fun Int.hasBitFlagSet2(bitFlag: Int): Boolean = (this and bitFlag) == bitFlag
