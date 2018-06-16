@@ -1,5 +1,5 @@
 object HandshakeCalculator {
-    private val REVERSE_BIT_FLAG = 0b0001_0000
+    private const val REVERSE_BIT_FLAG = 0b0001_0000
 
     fun calculateHandshake(n: Int): List<Signal> {
         val handshakeSignals = (Signal.values()).fold(emptyList<Signal>()) { acc, signal ->
