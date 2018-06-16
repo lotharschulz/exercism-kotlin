@@ -1,0 +1,38 @@
+
+import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
+
+class LeapTest {
+
+    @Test
+    fun yearNotDivisibleBy4() {
+        assertFalse(Year(2015).isLeap)
+    }
+
+    @Test
+    fun yearDivisibleBy4NotDivisibleBy100() {
+        assertTrue(Year(1996).isLeap)
+    }
+
+    @Test
+    fun yearDivisibleBy100NotDivisibleBy400() {
+        assertFalse(Year(2100).isLeap)
+    }
+
+    @Test
+    fun yearDivisibleBy400() {
+        assertTrue(Year(2000).isLeap)
+    }
+
+    @Test
+    fun year400() {
+        assertTrue(Year(400).isLeap)
+    }
+
+    @Test
+    fun year500() {
+        assertFalse(Year(500).isLeap)
+    }
+
+}
