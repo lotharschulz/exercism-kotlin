@@ -4,8 +4,8 @@ enum class Classification {
 }
 
 fun classify(naturalNumber: Int): Classification {
+    require(naturalNumber > 0) { "naturalNumber be greater than 0." }
     if (naturalNumber == 1) return Classification.DEFICIENT
-    if (naturalNumber < 1) throw RuntimeException()
     val dsum = naturalNumber.divisors().sum()
     return when{
         dsum == naturalNumber -> Classification.PERFECT
