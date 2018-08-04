@@ -1,7 +1,7 @@
 
 
 object ScrabbleScore{
-    private fun valueOf(letter: Char): Int = when (letter.toUpperCase()) {
+    private fun valueOf(letter: Char) = when (letter.toUpperCase()) {
             'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T' ->  1
             'D', 'G'                                         ->  2
             'B', 'C', 'M', 'P'                               ->  3
