@@ -4,8 +4,10 @@ class Squares constructor(naturalNumber: Int) {
     val number = naturalNumber
     fun squareOfSum():Int{
         return (1..number).sum().squared()
-        //return (1..number).sum().let { it * it }
-        //return (1..number).sum() * (1..number).sum()
+        // or
+        // return (1..number).sum().let { it * it }
+        // to avoid
+        // return (1..number).sum() * (1..number).sum()
     }
     fun sumOfSquares():Int{
         return (1..number).sumBy { it * it }
