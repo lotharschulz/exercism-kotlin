@@ -1,11 +1,13 @@
 class Matrix (m: List<List<Int>>){
-    val saddlePoints:Set<MatrixCoordinate> = identifySaddlePoints(m)
+    val saddlePoints:Set<MatrixCoordinate> by lazy(mode = LazyThreadSafetyMode.NONE) {
+        identifySaddlePoints(m)
+    }
 
     private fun identifySaddlePoints(m: List<List<Int>>):Set<MatrixCoordinate> {
         if(m.isEmpty() or m[0].isEmpty()) return emptySet()
         val transposedMatrix2 = transposeQuadraticMatrix(m)
-        this.print2DMatrix2(m, "matrix")
-        this.print2DMatrix2(transposedMatrix2, "transposed matrix")
+        // this.print2DMatrix2(m, "matrix")
+        // this.print2DMatrix2(transposedMatrix2, "transposed matrix")
 
         val maxList = m.map { it.max() }.toList()
         val minTransposedList = transposedMatrix2.map { it.min() }.toList()
@@ -16,9 +18,6 @@ class Matrix (m: List<List<Int>>){
     fun indentifySaddlePoints(saddleNumbers: Set<Int?>, m: List<List<Int>>, maxList: List<Int?>, minTransposedList: List<Int?>):
             Set<MatrixCoordinate>{
         require(m.isNotEmpty() and m[0].isNotEmpty())
-        println(saddleNumbers)
-        println(maxList)
-        println(minTransposedList)
 
         val res:MutableSet<MatrixCoordinate> = hashSetOf()
         var row = 0
@@ -57,7 +56,7 @@ class Matrix (m: List<List<Int>>){
         return transposedMatrix2
     }
 
-    private fun print2DMatrix2(m: List<List<Int>>, label: String){
+/*    private fun print2DMatrix2(m: List<List<Int>>, label: String){
         val output = StringBuilder()
         for (i in m){
             output.append("[")
@@ -69,6 +68,6 @@ class Matrix (m: List<List<Int>>){
         }
         println("$label:")
         println(output)
-    }
+    }*/
 
 }
