@@ -15,7 +15,7 @@ class Matrix (m: List<List<Int>>){
         return indentifySaddlePoints(saddleNumbers, m, maxList, minTransposedList)
     }
 
-    fun indentifySaddlePoints(saddleNumbers: Set<Int?>, m: List<List<Int>>, maxList: List<Int?>, minTransposedList: List<Int?>):
+    internal fun indentifySaddlePoints(saddleNumbers: Set<Int?>, m: List<List<Int>>, maxList: List<Int?>, minTransposedList: List<Int?>):
             Set<MatrixCoordinate>{
         require(m.isNotEmpty() and m[0].isNotEmpty())
 
