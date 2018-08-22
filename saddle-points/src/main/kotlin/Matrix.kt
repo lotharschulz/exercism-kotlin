@@ -3,38 +3,33 @@ class Matrix (m: List<List<Int>>){
         identifySaddlePoints(m)
     }
 
-    private fun identifySaddlePoints(m: List<List<Int>>):Set<MatrixCoordinate> {
-        if(m.isEmpty() or m[0].isEmpty()) return emptySet()
-        val transposedMatrix2 = transposeQuadraticMatrix(m)
-        // this.print2DMatrix2(m, "matrix")
+    private fun identifySaddlePoints(matrix: List<List<Int>>):Set<MatrixCoordinate> {
+        if(matrix.isEmpty() or matrix[0].isEmpty()) return emptySet()
+        val transposedMatrix2 = transposeQuadraticMatrix(matrix)
+        // this.print2DMatrix2(matrix, "matrix")
         // this.print2DMatrix2(transposedMatrix2, "transposed matrix")
 
-        val maxList = m.map { it.max() }.toList()
+        val maxList = matrix.map { it.max() }.toList()
         val minTransposedList = transposedMatrix2.map { it.min() }.toList()
         val saddleNumbers = maxList.intersect(minTransposedList)
-        return indentifySaddlePoints(saddleNumbers, m, maxList, minTransposedList)
+        return indentifySaddlePoints(saddleNumbers, matrix, maxList, minTransposedList)
     }
 
-    internal fun indentifySaddlePoints(saddleNumbers: Set<Int?>, m: List<List<Int>>, maxList: List<Int?>, minTransposedList: List<Int?>):
+    internal fun indentifySaddlePoints(saddleNumbers: Set<Int?>, matrix: List<List<Int>>, maxList: List<Int?>, minTransposedList: List<Int?>):
             Set<MatrixCoordinate>{
-        require(m.isNotEmpty() and m[0].isNotEmpty())
+        require(matrix.isNotEmpty() and matrix[0].isNotEmpty())
 
         val res:MutableSet<MatrixCoordinate> = hashSetOf()
-        var row = 0
-        var col:Int
 
         for (sn in saddleNumbers){
-            for (l in 0 .. (m.size-1)){
-                col = 0
-                for (i in 0 .. (m[l].size-1)){
-                    if(maxList.size >= l && minTransposedList.size >= i) {
-                        if (sn == m[l][i] && maxList[l] == sn && minTransposedList[i] == sn) {
+            for (row in 0 until matrix.size){
+                for (col in 0 until matrix[row].size){
+                    if(maxList.size >= row) { // could be also minTransposedList.size >= col
+                        if (sn == matrix[row][col] && maxList[row] == sn && minTransposedList[col] == sn) {
                             res.add(MatrixCoordinate(row, col))
                         }
                     }
-                    col += 1
                 }
-                row += 1
             }
         }
         return res
