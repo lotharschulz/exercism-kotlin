@@ -1,9 +1,9 @@
 object WordCount{
     private const val NORMALIZED_REG_EXP = "(\\W'|'\\W|\\.|:|,|[!%@&\$^])"
 
-    fun phrase (s: String): Map<String, Int> = wordsList(s).groupingBy { it }.eachCount()
+    fun phrase (s: String): Map<String, Int> = words(s).groupingBy { it }.eachCount()
 
-    private fun wordsList(s: String): List<String> = normalizeString(s).split("\\s+".toRegex())
+    private fun words(s: String): List<String> = normalizeString(s).split("\\s+".toRegex())
 
     private fun normalizeString(s: String): String = s.toLowerCase()
             .replace(NORMALIZED_REG_EXP.toRegex(), " ").trim()
