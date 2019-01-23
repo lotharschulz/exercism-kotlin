@@ -1,15 +1,22 @@
-import java.util.Random
+import java.util.*
 
 // https://stackoverflow.com/a/45687695
-fun IntRange.random() =
-        Random().nextInt((endInclusive + 1) - start) +  start
+fun IntRange.random() = Random().nextInt((endInclusive + 1) - start) +  start
 
-fun CharRange.random():Int 
-        = Random().nextInt((endInclusive + 1) - start) + start.toInt()
+fun String.double() = this + this
 
 class Robot{
-    var name:String = ('A'..'Z').random().toChar().toString() + ('A'..'Z').random().toChar().toString() + (100..999).random().toString()
+    var name:String = generateName()
+    private var names:Set<String> = mutableSetOf()
     fun reset(){
-        name = "123"
-    } 
+        val newname:String = generateName()
+        if (!names.contains(newname)){
+            name = newname
+            names.plus(name)
+        }else{
+            reset()
+        }
+    }
+    private fun generateName():String = generateChar().toString().double() + (100..999).random().toString()
+    private fun generateChar():Char = (65..90).random().toChar()
 }
