@@ -17,6 +17,7 @@ class Robot{
             reset()
         }
     }
-    private fun generateName():String = generateChar().toString().double() + (100..999).random().toString()
+    private fun generateName():String = generateChar().toString().double() + generateDigits()
+    private fun generateDigits():String = (100..999).random().toString()
     private fun generateChar():Char = (65..90).random().toChar()
 }
