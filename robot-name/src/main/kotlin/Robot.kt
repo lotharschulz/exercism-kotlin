@@ -1,4 +1,4 @@
-import java.util.Random
+import java.util.*
 
 // https://stackoverflow.com/a/45687695
 fun IntRange.random() = Random().nextInt((endInclusive + 1) - start) +  start
@@ -6,22 +6,22 @@ fun String.double() = this + this
 
 class Robot{
     private val names = mutableSetOf<String>()
-    var name:String = generateAndAddName()
+    var name:String = generateName()
 
-    private fun generateName():String = generateChar().toString().double() + generateDigits()
+    fun reset(){
+        name = generateName()
+    }
 
-    private fun generateAndAddName():String{
-        names.add(generateName())
-        return names.last()
+    private fun generateName():String{
+        var n:String
+        do {
+            n = generateChar().toString().double() + generateDigits()
+        }while(names.contains(n))
+        names.add(n)
+        return n
     }
 
     private fun generateDigits():String = (100..999).random().toString()
     private fun generateChar():Char = (65..90).random().toChar()
-
-    fun reset(){
-        do {
-            name = generateName()
-        }while(names.contains(name))
-    }
 
 }
