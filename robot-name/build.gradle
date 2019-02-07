@@ -19,11 +19,18 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     testCompile 'junit:junit:4.12'
+    //testImplementation 'io.kotlintest:kotlintest:3.2.1'
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.2.1")
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
 test {
     testLogging {
         exceptionFormat = 'full'
         events = ["passed", "failed", "skipped"]
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }

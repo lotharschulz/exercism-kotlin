@@ -12,7 +12,7 @@ class Robot{
         name = generateName()
     }
 
-    private fun generateName():String{
+    fun generateName():String{
         var n:String
         do {
             n = generateChar().toString().double() + generateDigits()
