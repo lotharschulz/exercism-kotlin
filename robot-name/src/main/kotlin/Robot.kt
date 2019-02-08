@@ -13,13 +13,12 @@ class Robot{
     }
 
     fun generateName():String{
-        var n:String
-        do {
-            n = generateChar().toString().double() + generateDigits()
-        }while(names.contains(n))
-        names.add(n)
+        var n = genName()
+        while (!names.add(n)) n = genName()
         return n
     }
+
+    private fun genName():String = generateChar().toString().double() + generateDigits()
 
     private fun generateDigits():String = (100..999).random().toString()
     private fun generateChar():Char = (65..90).random().toChar()
