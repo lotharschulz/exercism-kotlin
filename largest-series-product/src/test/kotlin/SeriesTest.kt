@@ -60,25 +60,21 @@ class SeriesTest {
         assertEquals(1, Series("").getLargestProduct(0))
     }
 
-    @Ignore
     @Test
     fun reports1ForNonEmptyStringAndEmptyProduct() {
         assertEquals(1, Series("123").getLargestProduct(0))
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun rejectsEmptyStringAndNonZeroSpan() {
         Series("").getLargestProduct(1)
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun rejectsInvalidCharacterInDigits() {
         Series("1234a5")
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun rejectsNegativeSpan() {
         Series("12345").getLargestProduct(-1)
