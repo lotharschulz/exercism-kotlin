@@ -1,4 +1,4 @@
-import org.junit.Ignore
+
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
@@ -46,7 +46,6 @@ class BoardTest {
         assertEquals(BigInteger("9223372036854775808"), Board.getGrainCountForSquare(64))
     }
 
-    @Ignore
     @Test
     fun testSquare0IsInvalid() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -55,7 +54,6 @@ class BoardTest {
         Board.getGrainCountForSquare(0)
     }
 
-    @Ignore
     @Test
     fun testNegativeSquareIsInvalid() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -64,7 +62,6 @@ class BoardTest {
         Board.getGrainCountForSquare(-1)
     }
 
-    @Ignore
     @Test
     fun testSquareGreaterThan64IsInvalid() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -73,7 +70,6 @@ class BoardTest {
         Board.getGrainCountForSquare(65)
     }
 
-    @Ignore
     @Test
     fun testBoardContainsCorrectNumberOfGrains() {
         assertEquals(BigInteger("18446744073709551615"), Board.getTotalGrainCount())
