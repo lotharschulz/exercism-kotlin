@@ -45,8 +45,8 @@ class BankAccountTest {
 
     @Test
     fun concurrentBalanceAdjustments() {
-        val threads = 1000
-        val iterations = 500
+        val threads = 3000
+        val iterations = 5000
         val random = Random()
 
         val account = BankAccount()
