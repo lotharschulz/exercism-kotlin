@@ -13,21 +13,25 @@ class CollatzCalculatorTest {
     @Test
     fun testZeroStepsRequiredWhenStartingFrom1() {
         assertEquals(0, CollatzCalculator.computeStepCount(1))
+        assertEquals(0, CollatzCalculator.computeStepCount_alt(1))
     }
 
     @Test
     fun testCorrectNumberOfStepsWhenAllStepsAreDivisions() {
         assertEquals(4, CollatzCalculator.computeStepCount(16))
+        assertEquals(4, CollatzCalculator.computeStepCount_alt(16))
     }
 
     @Test
     fun testCorrectNumberOfStepsWhenBothStepTypesAreNeeded() {
         assertEquals(9, CollatzCalculator.computeStepCount(12))
+        assertEquals(9, CollatzCalculator.computeStepCount_alt(12))
     }
 
     @Test
     fun testAVeryLargeInput() {
         assertEquals(152, CollatzCalculator.computeStepCount(1000000))
+        assertEquals(152, CollatzCalculator.computeStepCount_alt(1000000))
     }
 
     @Test
@@ -37,6 +41,13 @@ class CollatzCalculatorTest {
 
         CollatzCalculator.computeStepCount(0)
     }
+    @Test
+    fun testZeroIsConsideredInvalidInput_alt() {
+        expectedException.expect(IllegalArgumentException::class.java)
+        expectedException.expectMessage("Only natural numbers are allowed")
+
+        CollatzCalculator.computeStepCount_alt(0)
+    }
 
     @Test
     fun testNegativeIntegerIsConsideredInvalidInput() {
@@ -44,6 +55,13 @@ class CollatzCalculatorTest {
         expectedException.expectMessage("Only natural numbers are allowed")
 
         CollatzCalculator.computeStepCount(-15)
+    }
+    @Test
+    fun testNegativeIntegerIsConsideredInvalidInput_alt() {
+        expectedException.expect(IllegalArgumentException::class.java)
+        expectedException.expectMessage("Only natural numbers are allowed")
+
+        CollatzCalculator.computeStepCount_alt(-15)
     }
 
 }

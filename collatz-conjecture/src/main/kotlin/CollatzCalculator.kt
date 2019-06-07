@@ -1,30 +1,42 @@
-object CollatzCalculator {
-    fun computeStepCount(n: Int): Int {
-        require(n > 0) { "Only natural numbers are allowed" }
-        var (counter:Int, result:Int) = divideBy2(n)
+import kotlin.system.measureNanoTime
 
-        while (result != 1 && result.isOdd())   {
+object CollatzCalculator {
+
+    fun computeStepCount(num: Int): Int {
+        require(num >= 1) { "Only natural numbers are allowed" }
+        return generateSequence(num) { n -> if (n.isOdd()) n * 3 + 1 else n / 2 }.indexOf(1)
+    }
+    private fun Int.isOdd(): Boolean = this.rem(2) != 0
+
+    fun computeStepCount_alt(num: Int): Int {
+        require(num > 0) { "Only natural numbers are allowed" }
+        var result:Int = num
+        var counter = 0
+
+        while (result > 1){
+            if (result.isOdd()){
+                result = 3 * result +1
+            }else{
+                result /= 2
+            }
             counter++
-            val (c, r) = divideBy2(result * 3 + 1)
-            result = r
-            counter += c
         }
         return counter
     }
-
-    private fun divideBy2(n: Int): Pair<Int, Int> {
-        var i = n
-        var cntr = 0
-        while (i != 1 && i%2 == 0){
-            i /= 2
-            cntr++
-        }
-        return Pair(cntr,i)
-    }
-
-    private fun Int.isOdd(): Boolean = (this % 2 != 0)
 }
 
 fun main(args: Array<String>): Unit {
-    println(CollatzCalculator.computeStepCount(12))
+    // warm up
+    CollatzCalculator.computeStepCount(500)
+    CollatzCalculator.computeStepCount_alt(500)
+
+    val n1 = 12
+    println("computeStepCount($n1) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount(n1) }} ' nano seconds.")
+    println("computeStepCount_alt($n1) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount_alt(n1) }} ' nano seconds.")
+    val n2 = 16
+    println("computeStepCount($n2) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount(n2) }} ' nano seconds.")
+    println("computeStepCount_alt($n2) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount_alt(n2) }} ' nano seconds.")
+    val n3 = 2000000000
+    println("computeStepCount($n3) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount(n3) }} ' nano seconds.")
+    println("computeStepCount_alt($n3) takes ' ${measureNanoTime { CollatzCalculator.computeStepCount_alt(n3) }} ' nano seconds.")
 }
