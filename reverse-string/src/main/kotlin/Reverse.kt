@@ -1,5 +1,3 @@
 object Reverse {
-    fun reverse(i:String): String{
-        return i.reversed()
-    }
+    fun reverse(i:String): String = i.reversed()
 }
