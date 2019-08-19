@@ -15,7 +15,7 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("ear",    "earay"),
                 arrayOf("igloo",  "iglooay"),
                 arrayOf("object", "objectay"),
-                arrayOf("under",  "underay"),
+                arrayOf("under",  "underay")/*,
 
                 // Ay is added to words that start with vowels followed by qu
                 arrayOf("equal",  "equalay"),
@@ -60,7 +60,7 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("my",     "ymay"),
 
                 // Phrases are translated
-                arrayOf("quick fast run", "ickquay astfay unray")
+                arrayOf("quick fast run", "ickquay astfay unray")*/
         )
     }
 
