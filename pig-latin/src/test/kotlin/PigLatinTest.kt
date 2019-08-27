@@ -54,10 +54,10 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("yellow", "ellowyay"),
 
                 // Y is treated like a vowel at the end of a consonant cluster
-                arrayOf("rhythm", "ythmrhay")/*,
+                arrayOf("rhythm", "ythmrhay"),
 
                 // Y as second letter in two letter word
-                arrayOf("my",     "ymay"),
+                arrayOf("my",     "ymay")/*,
 
                 // Phrases are translated
                 arrayOf("quick fast run", "ickquay astfay unray")*/

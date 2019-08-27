@@ -16,8 +16,9 @@ object PigLatin {
                 println("input: $input")
                 val regex = """([bcdfghjklmnpqrstvwxz]+)y+?.+""".toRegex()
                 when{
-                    // case : Y is treated like a vowel at the end of a consonant cluster
-                    // regex matches """(bcdfghjklmnpqrstvwxz)"""
+                    input.length == 2 && input.substring(1,2).equals("y") -> {
+                        addAy("y" + input.substring(0, 1))
+                    }
                     regex matches input -> {
                         println("5 input: $input")
                         input.substring(input.indexOf("y"), input.length) +
