@@ -24,7 +24,7 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("pig",    "igpay"),
                 arrayOf("koala",  "oalakay"),
                 arrayOf("xenon",  "enonxay"),
-                arrayOf("qat",    "atqay")/*,
+                arrayOf("qat",    "atqay"),
 
                 // Ch is treated like a single consonant
                 arrayOf("chair", "airchay"),
@@ -51,7 +51,7 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("xray", "xrayay"),
 
                 // Y is treated like a consonant at the beginning of a word
-                arrayOf("yellow", "ellowyay"),
+                arrayOf("yellow", "ellowyay")/*,
 
                 // Y is treated like a vowel at the end of a consonant cluster
                 arrayOf("rhythm", "ythmrhay"),
