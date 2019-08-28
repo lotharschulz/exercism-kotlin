@@ -12,14 +12,7 @@ object PigLatin {
 
     private val regex = """([bcdfghjklmnpqrstvwxz]+)y+?.+""".toRegex()
 
-    fun translate(input: String): String {
-        if (input.indexOf(" ") > 0){
-            val translatedWords = mutableListOf("")
-            input.split(" ").forEach{ translatedWords.add( translateWord(it) ) }
-            return translatedWords.slice(1 until translatedWords.size).joinToString(" ")
-        }
-        return translateWord(input)
-    }
+    fun translate(input: String): String = input.split(" ").joinToString(" ") { translateWord(it) }
 
     private fun translateWord(input: String): String {
         return when{
