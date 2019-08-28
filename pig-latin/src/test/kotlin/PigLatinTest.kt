@@ -57,10 +57,10 @@ class PigLatinTest(val input: String, val expectedOutput: String) {
                 arrayOf("rhythm", "ythmrhay"),
 
                 // Y as second letter in two letter word
-                arrayOf("my",     "ymay")/*,
+                arrayOf("my",     "ymay"),
 
                 // Phrases are translated
-                arrayOf("quick fast run", "ickquay astfay unray")*/
+                arrayOf("quick fast run", "ickquay astfay unray")
         )
     }
 
