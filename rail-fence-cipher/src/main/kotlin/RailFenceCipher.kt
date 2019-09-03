@@ -23,12 +23,6 @@ class RailFenceCipher(private val rails: Int) {
     }
 
     private fun indentifyRail(index: Int): Int {
-        /*return (index % ((rails*2) - 2)).let {
-            if (it >= rails) ((rails*2) - 2) - it else it
-        }
-        val r = (index % ((rails*2) - 2))
-        if (r >= rails) return ((rails*2) - 2) - r
-        return (index % ((rails*2) - 2))*/
         val lowerMidRail = (rails*2) - 2
         val remainder = (index % lowerMidRail)
         if (remainder >= rails) return lowerMidRail - remainder
