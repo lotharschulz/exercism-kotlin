@@ -4,8 +4,7 @@ import org.junit.runners.Parameterized
 import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
-class PigLatinTest(val input: String, val expectedOutput: String) {
-
+eb
     companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: translate({0})={1}")
