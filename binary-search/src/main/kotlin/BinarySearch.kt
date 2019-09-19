@@ -9,7 +9,7 @@ object BinarySearch {
         //return binSearchIterative(list, search)
     }
 
-    private fun binSearchRecursive(list: List<Int>, search: Int, startIndex: Int, endIndex: Int): Int{
+    private tailrec fun binSearchRecursive(list: List<Int>, search: Int, startIndex: Int, endIndex: Int): Int{
         val m = (startIndex+endIndex)/2
         return when {
             search > list.elementAt(m) -> binSearchRecursive(list, search,m+1, endIndex)
