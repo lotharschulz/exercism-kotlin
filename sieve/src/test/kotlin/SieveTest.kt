@@ -7,21 +7,22 @@ class SieveTest {
     @Test
     fun noPrimesUnder2() {
         val expectedOutput = emptyList<Int>()
-        assertEquals(expectedOutput, Sieve.primesUpTo(1))
+        val input = 1
+        callPrimesUpFuns(expectedOutput, input)
     }
 
     @Test
     fun findFirstPrime() {
         val expectedOutput = listOf(2)
-
-        assertEquals(expectedOutput, Sieve.primesUpTo(2))
+        val input = 2
+        callPrimesUpFuns(expectedOutput, input)
     }
 
     @Test
     fun findPrimesUpTo10() {
         val expectedOutput = listOf(2, 3, 5, 7)
-
-        assertEquals(expectedOutput, Sieve.primesUpTo(10))
+        val input = 10
+        callPrimesUpFuns(expectedOutput, input)
     }
 
     @Test
@@ -35,8 +36,14 @@ class SieveTest {
                 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829,
                 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983,
                 991, 997)
+        val input = 1000
+        callPrimesUpFuns(expectedOutput, input)
+    }
 
-        assertEquals(expectedOutput, Sieve.primesUpTo(1000))
+    private fun callPrimesUpFuns(expectedOutput: List<Int>, input:Int){
+        assertEquals(expectedOutput, Sieve.primesUpTo(input))
+        assertEquals(expectedOutput, Sieve.primesUpToAlt(input))
+        assertEquals(expectedOutput, Sieve.primesUpToAlt2(input))
     }
 
 }
