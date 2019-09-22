@@ -1,15 +1,11 @@
 object BinarySearch {
-    const val INVALID = -1
+    private const val INVALID = -1
+    private const val SINGLE_ELEMENT = 0
 
-    fun search(list: List<Int>, search: Int):Int{
+    tailrec fun binSearchRecursive(list: List<Int>, search: Int, startIndex: Int, endIndex: Int): Int{
         require(list.isSorted())
-        if (list.size == 1) return 0
+        if (list.size == 1) return SINGLE_ELEMENT
         if (list.isEmpty() || list.elementAt(0) > search || !list.contains(search)) return INVALID
-        return binSearchRecursive(list,search,0, list.size)
-        //return binSearchIterative(list, search)
-    }
-
-    private tailrec fun binSearchRecursive(list: List<Int>, search: Int, startIndex: Int, endIndex: Int): Int{
         val m = (startIndex+endIndex)/2
         return when {
             search > list.elementAt(m) -> binSearchRecursive(list, search,m+1, endIndex)
@@ -18,7 +14,10 @@ object BinarySearch {
         }
     }
 
-    private fun binSearchIterative(list: List<Int>, search: Int): Int{
+    fun binSearchIterative(list: List<Int>, search: Int): Int{
+        require(list.isSorted())
+        if (list.size == 1) return SINGLE_ELEMENT
+        if (list.isEmpty() || list.elementAt(0) > search || !list.contains(search)) return INVALID
         require(list.isSorted())
 
         var r = 0.rangeTo(list.lastIndex)
