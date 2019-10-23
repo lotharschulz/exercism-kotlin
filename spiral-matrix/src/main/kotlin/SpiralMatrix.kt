@@ -4,10 +4,18 @@ object SpiralMatrix {
         println("values: $values")
         println("columns: $size")
 
-        val r:Array<IntArray> = Array(size) {
-            IntArray(size) { it }
+        val matrix:Array<IntArray> = Array(size) {
+            IntArray(size)
         }
-        r.forEach { it.forEach { println(it) } }
-        return r
+        //matrix.forEach { it.forEach { println(it) } }
+/*
+        for (i in 1 until size+1) {
+            for (j in 0 until size){
+                matrix[i-1][j] = i+j
+            }
+        }
+*/
+        matrix.forEach { it.forEach { it2 -> println(it2) } }
+        return matrix
     }
 }
