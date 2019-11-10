@@ -1,8 +1,45 @@
 import org.junit.Assert.assertArrayEquals
+import org.junit.Assert.assertEquals
 import org.junit.Ignore
 import org.junit.Test
 
 class SpiralMatrixTest {
+
+    @Test
+    fun testEmptySpiralEdges(){
+        val expected = emptyList<Int>()
+        assertEquals(expected, SpiralMatrix.edges(0))
+    }
+
+    @Test
+    fun testTrivialSpiralEdges(){
+        val expected = listOf<Int>(1)
+        assertEquals(expected, SpiralMatrix.edges(1))
+    }
+
+    @Test
+    fun testSpiralOfSize2Edges(){
+        val expected = listOf<Int>(1,2,3,4)
+        assertEquals(expected, SpiralMatrix.edges(2))
+    }
+
+    @Test
+    fun testSpiralOfSize3Edges(){
+        val expected = listOf<Int>(1,3,5,7)
+        assertEquals(expected, SpiralMatrix.edges(3))
+    }
+
+    @Test
+    fun testSpiralOfSize4Edges(){
+        val expected = listOf<Int>(1,4,7,10)
+        assertEquals(expected, SpiralMatrix.edges(4))
+    }
+
+    @Test
+    fun testSpiralOfSize5Edges(){
+        val expected = listOf<Int>(1,5,9,13)
+        assertEquals(expected, SpiralMatrix.edges(5))
+    }
 
     @Ignore
     @Test
@@ -22,7 +59,7 @@ class SpiralMatrixTest {
         assertArrayEquals(expected, SpiralMatrix.ofSize(1))
     }
 
-    //@Ignore
+    @Ignore
     @Test
     fun testSpiralOfSize2() {
         val expected = arrayOf(
