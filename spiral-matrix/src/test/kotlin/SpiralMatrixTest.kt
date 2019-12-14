@@ -5,7 +5,7 @@ import org.junit.Test
 
 class SpiralMatrixTest {
 
-    @Test
+/*    @Test
     fun testEmptySpiralEdges(){
         val expected = emptyList<Int>()
         assertEquals(expected, SpiralMatrix.edges(0))
@@ -39,9 +39,9 @@ class SpiralMatrixTest {
     fun testSpiralOfSize5Edges(){
         val expected = listOf<Int>(1,5,9,13)
         assertEquals(expected, SpiralMatrix.edges(5))
-    }
+    }*/
 
-    @Ignore
+    //@Ignore
     @Test
     fun testEmptySpiral() {
         val expected = emptyArray<IntArray>()
@@ -49,7 +49,7 @@ class SpiralMatrixTest {
         assertArrayEquals(expected, SpiralMatrix.ofSize(0))
     }
 
-    @Ignore
+    //@Ignore
     @Test
     fun testTrivialSpiral() {
         val expected = arrayOf(
@@ -59,7 +59,7 @@ class SpiralMatrixTest {
         assertArrayEquals(expected, SpiralMatrix.ofSize(1))
     }
 
-    @Ignore
+    //@Ignore
     @Test
     fun testSpiralOfSize2() {
         val expected = arrayOf(
@@ -70,7 +70,7 @@ class SpiralMatrixTest {
         assertArrayEquals(expected, SpiralMatrix.ofSize(2))
     }
 
-    @Ignore
+    //@Ignore
     @Test
     fun testSpiralOfSize3() {
         val expected = arrayOf(
