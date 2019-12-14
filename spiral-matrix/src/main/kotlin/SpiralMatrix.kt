@@ -22,7 +22,7 @@ object SpiralMatrix {
             }
             lastCol--
             if (r<=lastRow){
-                for (i in lastCol downTo c){
+                for (i in lastCol+whileCntr downTo c){
                     res[lastRow-1][i-1] = value
                     value++
                 }
