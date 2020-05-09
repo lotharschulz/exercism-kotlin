@@ -1,19 +1,17 @@
 class Matrix(private val matrixAsString: String) {
 
-    fun column(colNr: Int): List<Int> {
-        TODO("Implement this to complete the task")
-    }
+    private val NL = "\n"
+    private val SPACE = " "
 
-    fun row(rowNr: Int): List<Int> {
-/*
-        print(matrixAsString.split("\n").forEachIndexed{
-            index, element -> println("index = $index, element = $element")
+    fun column(colNr: Int): List<Int> =
+        if (matrixAsString.indexOf(NL) == -1)
+            listOf(matrixAsString.toInt())
+        else
+            matrixAsString.split(NL).map { it.split(SPACE).filter { it.isNotEmpty() }.get(colNr-1).toInt() }
 
-        })
-*/
-        //val r:Int = rowNr-1
-        if (matrixAsString.indexOf("\n") == -1) return listOf(matrixAsString.toInt())
-        return matrixAsString.split("\n").get(rowNr-1).split(" ").map { it.toInt() }
-        //return listOf(2, 3)
-    }
+    fun row(rowNr: Int): List<Int> =
+        if (matrixAsString.indexOf(NL) == -1)
+            listOf(matrixAsString.toInt())
+        else
+            matrixAsString.split(NL).get(rowNr-1).split(SPACE).filter { it.isNotEmpty() }.map { it.toInt() }
 }
