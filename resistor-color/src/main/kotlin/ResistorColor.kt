@@ -11,7 +11,7 @@ object ResistorColor {
             "grey" to 0,
             "white" to 9
     ).withDefault {
-        1
+        10
     }
 
     fun colorCode(input: String): Int = colors.getValue(input)
