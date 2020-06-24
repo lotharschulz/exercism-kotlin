@@ -3,6 +3,21 @@ import kotlin.math.pow
 
 object ResistorColorTrio {
 
+    /* solution 1 */
+    private fun resistorValue(vararg input: Color): Int {
+        val (c1, c2, c3) = input
+        return (10 * c1.ordinal + c2.ordinal) * (10.toDouble().pow(c3.ordinal).toInt())
+    }
+
+    fun text1(vararg input: Color): String {
+        val v = resistorValue(*input)
+        val magnitude = log(v.toDouble(), 1000.toDouble()).toInt()
+        val value = (v / 1000.toDouble().pow(magnitude.toDouble())).toInt()
+        val unit = Unit.values()[magnitude].name.toLowerCase()
+        return "$value $unit"
+    }
+
+    /* solution 2, 3 */
     private val colors: Map<Color, Int> = mapOf(
             Color.BLACK to 0,
             Color.BROWN to 1,
@@ -38,22 +53,9 @@ object ResistorColorTrio {
     private fun magnitude(input: Color): String? =
             decimals[10.toDouble().pow( colors[input] ?: error(-1)).toInt()]
 
-    fun text(vararg input: Color): String =
+    fun text2(vararg input: Color): String =
             input[0].ordinal.toString() + secondPosition(input[1]) + magnitude(input[2]) + "ohms"
 
-    fun text2(vararg input: Color): String =
+    fun text3(vararg input: Color): String =
             colors[input[0]].toString() + secondPosition(input[1]) + magnitude(input[2]) + "ohms"
-
-    private fun resistorValue(vararg input: Color): Int {
-        val (c1, c2, c3) = input
-        return (10 * c1.ordinal + c2.ordinal) * (10.toDouble().pow(c3.ordinal).toInt())
-    }
-
-    fun text3(vararg input: Color): String {
-        val v = resistorValue(*input)
-        val magnitude = log(v.toDouble(), 1000.toDouble()).toInt()
-        val value = (v / 1000.toDouble().pow(magnitude.toDouble())).toInt()
-        val unit = Unit.values()[magnitude].name.toLowerCase()
-        return "$value $unit"
-    }
 }
