@@ -1,5 +1,4 @@
 import kotlin.math.log
-import kotlin.math.log10
 import kotlin.math.pow
 
 object ResistorColorTrio {
@@ -47,27 +46,14 @@ object ResistorColorTrio {
 
     private fun resistorValue(vararg input: Color): Int {
         val (c1, c2, c3) = input
-        var value = 10 * c1.ordinal + c2.ordinal
-        repeat(times = c3.ordinal) { value *= 10 }
-        return value
+        return (10 * c1.ordinal + c2.ordinal) * (10.toDouble().pow(c3.ordinal).toInt())
     }
 
     fun text3(vararg input: Color): String {
-        val value = resistorValue(*input)
-        //var magnitude = 0
-        val mag3 = log(value.toDouble(), 1000.toDouble()).toInt()
-        val newvalue = (value / 1000.toDouble().pow(mag3.toDouble())).toInt()
-/*
-        println("value: $value - newvalue: $newvalue - magnitude: $magnitude -- mag3: $mag3")
-        while (value % 1000 == 0) {
-            println("value: $value")
-            value /= 1000
-            magnitude++
-        }
-        println("value: $value - newvalue: $newvalue - magnitude: $magnitude -- mag3: $mag3")
-*/
-
-        val unit = Unit.values()[mag3].name.toLowerCase()
-        return "$newvalue $unit"
+        val v = resistorValue(*input)
+        val magnitude = log(v.toDouble(), 1000.toDouble()).toInt()
+        val value = (v / 1000.toDouble().pow(magnitude.toDouble())).toInt()
+        val unit = Unit.values()[magnitude].name.toLowerCase()
+        return "$value $unit"
     }
 }
