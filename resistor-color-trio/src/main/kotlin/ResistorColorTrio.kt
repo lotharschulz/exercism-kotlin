@@ -9,7 +9,7 @@ object ResistorColorTrio {
         return (10 * c1.ordinal + c2.ordinal) * (10.toDouble().pow(c3.ordinal).toInt())
     }
 
-    fun text1(vararg input: Color): String {
+    fun text(vararg input: Color): String {
         val v = resistorValue(*input)
         val magnitude = log(v.toDouble(), 1000.toDouble()).toInt()
         val value = (v / 1000.toDouble().pow(magnitude.toDouble())).toInt()
