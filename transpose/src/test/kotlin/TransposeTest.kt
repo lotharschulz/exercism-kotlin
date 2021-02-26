@@ -55,7 +55,6 @@ class TransposeTest {
         assertEquals(expected, Transpose.transpose(lines))
     }
 
-    @Ignore
     @Test
     fun `mixed line length`() {
         val lines = listOf("The longest line.", "A long line.", "A longer line.", "A line.")
@@ -63,7 +62,6 @@ class TransposeTest {
         assertEquals(expected, Transpose.transpose(lines))
     }
 
-    @Ignore
     @Test
     fun square() {
         val lines = listOf("HEART", "EMBER", "ABUSE", "RESIN", "TREND")
@@ -71,7 +69,6 @@ class TransposeTest {
         assertEquals(expected, Transpose.transpose(lines))
     }
 
-    @Ignore
     @Test
     fun rectangle() {
         val lines = listOf("FRACTURE", "OUTLINED", "BLOOMING", "SEPTETTE")
@@ -79,7 +76,6 @@ class TransposeTest {
         assertEquals(expected, Transpose.transpose(lines))
     }
 
-    @Ignore
     @Test
     fun triangle() {
         val lines = listOf("T", "EE", "AAA", "SSSS", "EEEEE", "RRRRRR")
