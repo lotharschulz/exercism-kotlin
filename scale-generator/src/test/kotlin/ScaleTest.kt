@@ -16,7 +16,6 @@ class ScaleTest {
         assertScalesEqual(expected, Scale("F").chromatic())
     }
 
-/*
     // Test scales with specified intervals
     @Test
     fun `simple major scale`() {
@@ -108,7 +107,6 @@ class ScaleTest {
         assertScalesEqual(expected, Scale("G").interval("mAMMMmm"))
     }
 
-*/
     private fun assertScalesEqual(expected: List<String>, actual: List<String>) {
         asserter.assertTrue(
             { "Scales should be equal. Expected <$expected>, actual <$actual>" },
