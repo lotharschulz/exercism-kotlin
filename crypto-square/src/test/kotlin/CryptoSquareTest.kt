@@ -10,7 +10,7 @@ class CryptoSquareTest {
         val expectedOutput = ""
         assertEquals(expectedOutput, CryptoSquare.ciphertext(plaintext))
     }
-/*
+
     @Test
     fun `letters are lower cased during encryption`() {
         val plaintext = "A"
@@ -51,5 +51,5 @@ class CryptoSquareTest {
         val plaintext = "If man was meant to stay on the ground, god would have given us roots."
         val expectedOutput = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau "
         assertEquals(expectedOutput, CryptoSquare.ciphertext(plaintext))
-    }*/
+    }
 }
