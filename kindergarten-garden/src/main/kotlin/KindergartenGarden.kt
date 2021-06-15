@@ -12,9 +12,8 @@ class KindergartenGarden(private val diagram: String) {
     fun getPlantsOfStudent(student: String): List<String> {
         require(studentsInClass.contains(student))
         val index = studentsInClass.indexOf(student)
-        val diagramList: List<String> = diagram.split("\n")
         val plantsList = mutableListOf<String>();
-        diagramList.forEach {
+        diagram.split("\n").forEach {
             cupToPlants[it.get(index*2).toString()]?.let { cupLabel -> plantsList.add(cupLabel) }
             cupToPlants[it.get(index*2+1).toString()]?.let { cupLabel -> plantsList.add(cupLabel) }
         }
