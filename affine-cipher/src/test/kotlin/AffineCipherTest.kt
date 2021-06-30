@@ -1,6 +1,11 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
+import AffineCipher.findGreatestCommonDivisor
+import AffineCipher.coprime
+import AffineCipher.modularMultiplicativeInverse
 
 class AffineCipherTest {
 
@@ -58,5 +63,30 @@ class AffineCipherTest {
         assertFailsWith<IllegalArgumentException>("a and m must be coprime.") {
             AffineCipher.decode("Test", 13, 5)
         }
+    }
+
+    @Test
+    fun `greatest common divisor of 54 and 24`() {
+        assertEquals(6, 54.findGreatestCommonDivisor(24))
+    }
+
+    @Test
+    fun `12 and 77 a coprime`(){
+        assertTrue(12.coprime(77))
+        assertTrue(77.coprime(12))
+    }
+
+    @Test
+    fun `15 and 25 are NOT coprime`(){
+        assertFalse(15.coprime(25))
+        assertFalse(25.coprime(15))
+    }
+
+    @Test
+    fun `modular multiplicative inverse`(){
+        assertEquals(23, 17.modularMultiplicativeInverse())
+        assertEquals(9, 3.modularMultiplicativeInverse())
+        assertEquals(11, 19.modularMultiplicativeInverse())
+        assertEquals(7, 15.modularMultiplicativeInverse())
     }
 }
