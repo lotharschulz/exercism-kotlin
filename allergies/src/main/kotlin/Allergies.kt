@@ -1,11 +1,4 @@
-class Allergies {
-    // TODO: implement proper constructor to complete the task
-
-    fun getList(): List<Allergen> {
-        TODO("Implement the function to complete the task")
-    }
-
-    fun isAllergicTo(allergen: Allergen) {
-        TODO("Implement the function to complete the task")
-    }
+class Allergies(private val totalScore: Int) {
+    fun getList(): List<Allergen> = Allergen.values().filter{ isAllergicTo(it) }
+    fun isAllergicTo(allergen: Allergen):Boolean = totalScore and allergen.score != 0
 }
