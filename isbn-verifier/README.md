@@ -75,7 +75,7 @@ completed the exercise.
 
 # Gradle update (ubuntu)
 
-1. ## Update gradle version
+## Update gradle version
     
     ```shell
     sudo add-apt-repository ppa:cwchien/gradle
@@ -88,14 +88,14 @@ completed the exercise.
     - https://askubuntu.com/a/975018
     - https://launchpad.net/~cwchien/+archive/ubuntu/gradle
 
-1. ## Update gradle wrapper
+## Update gradle wrapper
 
     ```shell
     chmod +x ./gradlew
     ./gradlew wrapper --gradle-version 7.0 --warning-mode all
     ```
 
-1. ## `build.gradle.kts` update
+## `build.gradle.kts` update
 
     update _plugins_, _repositories_ and _dependencies_ like so:
     
@@ -116,7 +116,7 @@ completed the exercise.
     
     ```
 
-1. ## test new gradle setup
+## test new gradle setup
 
     ```shell
     ./gradlew compileKotlin
