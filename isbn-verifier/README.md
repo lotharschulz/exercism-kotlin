@@ -70,3 +70,54 @@ Converting a string into a number and some basic processing utilizing a relatabl
 
 It's possible to submit an incomplete solution so you can see how others have
 completed the exercise.
+
+---
+
+# Gradle update (ubuntu)
+
+1. # Update gradle version
+
+```shell
+sudo add-apt-repository ppa:cwchien/gradle
+sudo apt-get update
+sudo apt upgrade gradle
+
+gradle -version
+```
+
+- https://askubuntu.com/a/975018
+- https://launchpad.net/~cwchien/+archive/ubuntu/gradle
+
+1. # Update gradle wrapper
+
+```shell
+chmod +x ./gradlew
+./gradlew wrapper --gradle-version 7.0 --warning-mode all
+```
+
+1. # `build.gradle.kts` update
+
+update _plugins_, _repositories_ and _dependencies_ like so:
+
+```kotlin
+plugins {
+   id("org.jetbrains.kotlin.jvm") version "1.5.21"
+}
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+   implementation(kotlin("stdlib"))
+   testImplementation("junit:junit:4.12")
+   testImplementation(kotlin("test-junit"))
+}
+
+```
+
+1. # test new gradle setup
+
+```shell
+./gradlew compileKotlin
+```
