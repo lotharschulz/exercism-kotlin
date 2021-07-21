@@ -75,49 +75,49 @@ completed the exercise.
 
 # Gradle update (ubuntu)
 
-1. # Update gradle version
+1. ## Update gradle version
+    
+    ```shell
+    sudo add-apt-repository ppa:cwchien/gradle
+    sudo apt-get update
+    sudo apt upgrade gradle
+    
+    gradle -version
+    ```
+    
+    - https://askubuntu.com/a/975018
+    - https://launchpad.net/~cwchien/+archive/ubuntu/gradle
 
-```shell
-sudo add-apt-repository ppa:cwchien/gradle
-sudo apt-get update
-sudo apt upgrade gradle
+1. ## Update gradle wrapper
 
-gradle -version
-```
+    ```shell
+    chmod +x ./gradlew
+    ./gradlew wrapper --gradle-version 7.0 --warning-mode all
+    ```
 
-- https://askubuntu.com/a/975018
-- https://launchpad.net/~cwchien/+archive/ubuntu/gradle
+1. ## `build.gradle.kts` update
 
-1. # Update gradle wrapper
+    update _plugins_, _repositories_ and _dependencies_ like so:
+    
+    ```kotlin
+    plugins {
+       id("org.jetbrains.kotlin.jvm") version "1.5.21"
+    }
+    
+    repositories {
+       mavenCentral()
+    }
+    
+    dependencies {
+       implementation(kotlin("stdlib"))
+       testImplementation("junit:junit:4.12")
+       testImplementation(kotlin("test-junit"))
+    }
+    
+    ```
 
-```shell
-chmod +x ./gradlew
-./gradlew wrapper --gradle-version 7.0 --warning-mode all
-```
+1. ## test new gradle setup
 
-1. # `build.gradle.kts` update
-
-update _plugins_, _repositories_ and _dependencies_ like so:
-
-```kotlin
-plugins {
-   id("org.jetbrains.kotlin.jvm") version "1.5.21"
-}
-
-repositories {
-   mavenCentral()
-}
-
-dependencies {
-   implementation(kotlin("stdlib"))
-   testImplementation("junit:junit:4.12")
-   testImplementation(kotlin("test-junit"))
-}
-
-```
-
-1. # test new gradle setup
-
-```shell
-./gradlew compileKotlin
-```
+    ```shell
+    ./gradlew compileKotlin
+    ```
