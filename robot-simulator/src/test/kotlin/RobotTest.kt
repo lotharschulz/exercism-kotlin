@@ -43,7 +43,6 @@ class RobotTest {
                 face(Orientation.WEST)
             }
 
-
     @Test
     fun `rotating clockwise - changes west to north`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.WEST)
