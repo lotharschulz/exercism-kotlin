@@ -1,5 +1,4 @@
 import org.junit.Assert.assertEquals
-import org.junit.Ignore
 import org.junit.Test
 import kotlin.math.*
 
@@ -29,30 +28,27 @@ class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual)
     }
 
-//    @Ignore
-//    @Test
-//    fun testAdditionWithPurelyRealNumbers() {
-//        val expected = ComplexNumber(real = 3.0)
-//        val actual = ComplexNumber(real = 1.0) + ComplexNumber(real = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAdditionWithPurelyImaginaryNumbers() {
-//        val expected = ComplexNumber(imag = 3.0)
-//        val actual = ComplexNumber(imag = 1.0) + ComplexNumber(imag = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAdditionWithRealAndImaginaryParts() {
-//        val expected = ComplexNumber(real = 4.0, imag = 6.0)
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0) + ComplexNumber(real = 3.0, imag = 4.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
+    @Test
+    fun testAdditionWithPurelyRealNumbers() {
+        val expected = ComplexNumber(real = 3.0)
+        val actual = ComplexNumber(real = 1.0) + ComplexNumber(real = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testAdditionWithPurelyImaginaryNumbers() {
+        val expected = ComplexNumber(imag = 3.0)
+        val actual = ComplexNumber(imag = 1.0) + ComplexNumber(imag = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testAdditionWithRealAndImaginaryParts() {
+        val expected = ComplexNumber(real = 4.0, imag = 6.0)
+        val actual = ComplexNumber(real = 1.0, imag = 2.0) + ComplexNumber(real = 3.0, imag = 4.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
 //    @Ignore
 //    @Test
 //    fun testSubtractionWithPurelyRealNumbers() {
@@ -268,5 +264,4 @@ class ComplexNumberTest {
 //        val actual = exponential(ComplexNumber(real = ln(2.0), imag = PI))
 //        assertComplexNumbersEqual(expected, actual)
 //    }
-
 }
