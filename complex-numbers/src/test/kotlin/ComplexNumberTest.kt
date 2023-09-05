@@ -182,31 +182,28 @@ class ComplexNumberTest {
         val actual = ComplexNumber(real = 1.0, imag = 2.0).real
         assertDoublesEqual(expected, actual)
     }
-//
-//    @Ignore
-//    @Test
-//    fun testImaginaryPartOfPurelyRealNumber() {
-//        val expected = 0.0
-//        val actual = ComplexNumber(real = 1.0).imag
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testImaginaryPartOfPurelyImaginaryNumber() {
-//        val expected = 1.0
-//        val actual = ComplexNumber(imag = 1.0).imag
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testImaginaryPartOfNumberWithRealAndImaginaryParts() {
-//        val expected = 2.0
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0).imag
-//        assertDoublesEqual(expected, actual)
-//    }
-//
+
+    @Test
+    fun testImaginaryPartOfPurelyRealNumber() {
+        val expected = 0.0
+        val actual = ComplexNumber(real = 1.0).imag
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testImaginaryPartOfPurelyImaginaryNumber() {
+        val expected = 1.0
+        val actual = ComplexNumber(imag = 1.0).imag
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testImaginaryPartOfNumberWithRealAndImaginaryParts() {
+        val expected = 2.0
+        val actual = ComplexNumber(real = 1.0, imag = 2.0).imag
+        assertDoublesEqual(expected, actual)
+    }
+
 //    @Ignore
 //    @Test
 //    fun testExponentialOfPurelyImaginaryNumber() {
