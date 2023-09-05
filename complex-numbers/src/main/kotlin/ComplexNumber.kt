@@ -1,4 +1,7 @@
+import kotlin.math.cos
+import kotlin.math.exp
 import kotlin.math.pow
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 data class ComplexNumber(val real: Double = 0.0, val imag: Double = 0.0) {
@@ -26,3 +29,5 @@ data class ComplexNumber(val real: Double = 0.0, val imag: Double = 0.0) {
 
     fun conjugate() = ComplexNumber(real, -imag)
 }
+
+fun exponential(other: ComplexNumber) = ComplexNumber(exp(other.real) * cos(other.imag), sin(other.imag))

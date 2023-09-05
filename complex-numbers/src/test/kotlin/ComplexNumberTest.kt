@@ -1,5 +1,8 @@
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import kotlin.math.E
+import kotlin.math.PI
+import kotlin.math.ln
 
 class ComplexNumberTest {
     companion object {
@@ -204,35 +207,31 @@ class ComplexNumberTest {
         assertDoublesEqual(expected, actual)
     }
 
-//    @Ignore
-//    @Test
-//    fun testExponentialOfPurelyImaginaryNumber() {
-//        val expected = ComplexNumber(real = -1.0)
-//        val actual = exponential(ComplexNumber(imag = PI))
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testExponentialOfZero() {
-//        val expected = ComplexNumber(real = 1.0)
-//        val actual = exponential(ComplexNumber())
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testExponentialOfPurelyRealNumber() {
-//        val expected = ComplexNumber(real = E)
-//        val actual = exponential(ComplexNumber(real = 1.0))
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testExponentialOfANumberWithRealAndImaginaryPart() {
-//        val expected = ComplexNumber(real = -2.0)
-//        val actual = exponential(ComplexNumber(real = ln(2.0), imag = PI))
-//        assertComplexNumbersEqual(expected, actual)
-//    }
+    @Test
+    fun testExponentialOfPurelyImaginaryNumber() {
+        val expected = ComplexNumber(real = -1.0)
+        val actual = exponential(ComplexNumber(imag = PI))
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testExponentialOfZero() {
+        val expected = ComplexNumber(real = 1.0)
+        val actual = exponential(ComplexNumber())
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testExponentialOfPurelyRealNumber() {
+        val expected = ComplexNumber(real = E)
+        val actual = exponential(ComplexNumber(real = 1.0))
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testExponentialOfANumberWithRealAndImaginaryPart() {
+        val expected = ComplexNumber(real = -2.0)
+        val actual = exponential(ComplexNumber(real = ln(2.0), imag = PI))
+        assertComplexNumbersEqual(expected, actual)
+    }
 }
