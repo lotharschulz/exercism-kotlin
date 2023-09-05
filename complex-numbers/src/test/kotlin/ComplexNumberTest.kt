@@ -1,11 +1,7 @@
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import kotlin.math.*
 
 class ComplexNumberTest {
-
-    // Test helpers
-
     companion object {
         private const val DOUBLE_EQUALITY_TOLERANCE = 1e-15
     }
@@ -18,8 +14,6 @@ class ComplexNumberTest {
         assertDoublesEqual(c1.real, c2.real)
         assertDoublesEqual(c1.imag, c2.imag)
     }
-
-    // Tests
 
     @Test
     fun testImaginaryUnitExhibitsDefiningProperty() {
@@ -70,94 +64,83 @@ class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual)
     }
 
-//    @Ignore
-//    @Test
-//    fun testMultiplicationWithPurelyRealNumbers() {
-//        val expected = ComplexNumber(real = 2.0)
-//        val actual = ComplexNumber(real = 1.0) * ComplexNumber(real = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testMultiplicationWithPurelyImaginaryNumbers() {
-//        val expected = ComplexNumber(real = -2.0)
-//        val actual = ComplexNumber(imag = 1.0) * ComplexNumber(imag = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testMultiplicationWithRealAndImaginaryParts() {
-//        val expected = ComplexNumber(real = -5.0, imag = 10.0)
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0) * ComplexNumber(real = 3.0, imag = 4.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testDivisionWithPurelyRealNumbers() {
-//        val expected = ComplexNumber(real = 0.5)
-//        val actual = ComplexNumber(real = 1.0) / ComplexNumber(real = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testDivisionWithPurelyImaginaryNumbers() {
-//        val expected = ComplexNumber(real = 0.5)
-//        val actual = ComplexNumber(imag = 1.0) / ComplexNumber(imag = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testDivisionWithRealAndImaginaryParts() {
-//        val expected = ComplexNumber(real = 0.44, imag = 0.08)
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0) / ComplexNumber(real = 3.0, imag = 4.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAbsoluteValueOfPositivePurelyRealNumber() {
-//        val expected = 5.0
-//        val actual = ComplexNumber(real = 5.0).abs
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAbsoluteValueOfNegativePurelyRealNumber() {
-//        val expected = 5.0
-//        val actual = ComplexNumber(real = -5.0).abs
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAbsoluteValueOfPurelyImaginaryNumberWithPositiveImaginaryPart() {
-//        val expected = 5.0
-//        val actual = ComplexNumber(imag = 5.0).abs
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAbsoluteValueOfPurelyImaginaryNumberWithNegativeImaginaryPart() {
-//        val expected = 5.0
-//        val actual = ComplexNumber(imag = -5.0).abs
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testAbsoluteValueOfNumberWithRealAndImaginaryParts() {
-//        val expected = 5.0
-//        val actual = ComplexNumber(real = 3.0, imag = 4.0).abs
-//        assertDoublesEqual(expected, actual)
-//    }
-//
+    @Test
+    fun testMultiplicationWithPurelyRealNumbers() {
+        val expected = ComplexNumber(real = 2.0)
+        val actual = ComplexNumber(real = 1.0) * ComplexNumber(real = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testMultiplicationWithPurelyImaginaryNumbers() {
+        val expected = ComplexNumber(real = -2.0)
+        val actual = ComplexNumber(imag = 1.0) * ComplexNumber(imag = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testMultiplicationWithRealAndImaginaryParts() {
+        val expected = ComplexNumber(real = -5.0, imag = 10.0)
+        val actual = ComplexNumber(real = 1.0, imag = 2.0) * ComplexNumber(real = 3.0, imag = 4.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testDivisionWithPurelyRealNumbers() {
+        val expected = ComplexNumber(real = 0.5)
+        val actual = ComplexNumber(real = 1.0) / ComplexNumber(real = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testDivisionWithPurelyImaginaryNumbers() {
+        val expected = ComplexNumber(real = 0.5)
+        val actual = ComplexNumber(imag = 1.0) / ComplexNumber(imag = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testDivisionWithRealAndImaginaryParts() {
+        val expected = ComplexNumber(real = 0.44, imag = 0.08)
+        val actual = ComplexNumber(real = 1.0, imag = 2.0) / ComplexNumber(real = 3.0, imag = 4.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testAbsoluteValueOfPositivePurelyRealNumber() {
+        val expected = 5.0
+        val actual = ComplexNumber(real = 5.0).abs
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testAbsoluteValueOfNegativePurelyRealNumber() {
+        val expected = 5.0
+        val actual = ComplexNumber(real = -5.0).abs
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testAbsoluteValueOfPurelyImaginaryNumberWithPositiveImaginaryPart() {
+        val expected = 5.0
+        val actual = ComplexNumber(imag = 5.0).abs
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testAbsoluteValueOfPurelyImaginaryNumberWithNegativeImaginaryPart() {
+        val expected = 5.0
+        val actual = ComplexNumber(imag = -5.0).abs
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testAbsoluteValueOfNumberWithRealAndImaginaryParts() {
+        val expected = 5.0
+        val actual = ComplexNumber(real = 3.0, imag = 4.0).abs
+        assertDoublesEqual(expected, actual)
+    }
+
 //    @Ignore
 //    @Test
 //    fun testConjugationOfPurelyRealNumber() {
