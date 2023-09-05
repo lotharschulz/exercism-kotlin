@@ -8,4 +8,9 @@ data class ComplexNumber(val real: Double = 0.0, val imag: Double = 0.0) {
         real = real + other.real,
         imag = imag + other.imag,
     )
+
+    operator fun minus(other: ComplexNumber) = ComplexNumber(
+        real = real - other.real,
+        imag = imag - other.imag,
+    )
 }

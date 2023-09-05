@@ -49,30 +49,27 @@ class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual)
     }
 
-//    @Ignore
-//    @Test
-//    fun testSubtractionWithPurelyRealNumbers() {
-//        val expected = ComplexNumber(real = -1.0, imag = 0.0)
-//        val actual = ComplexNumber(real = 1.0, imag = 0.0) - ComplexNumber(real = 2.0, imag = 0.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testSubtractionWithPurelyImaginaryNumbers() {
-//        val expected = ComplexNumber(imag = -1.0)
-//        val actual = ComplexNumber(imag = 1.0) - ComplexNumber(imag = 2.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testSubtractionWithRealAndImaginaryParts() {
-//        val expected = ComplexNumber(real = -2.0, imag = -2.0)
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0) - ComplexNumber(real = 3.0, imag = 4.0)
-//        assertComplexNumbersEqual(expected, actual)
-//    }
-//
+    @Test
+    fun testSubtractionWithPurelyRealNumbers() {
+        val expected = ComplexNumber(real = -1.0, imag = 0.0)
+        val actual = ComplexNumber(real = 1.0, imag = 0.0) - ComplexNumber(real = 2.0, imag = 0.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testSubtractionWithPurelyImaginaryNumbers() {
+        val expected = ComplexNumber(imag = -1.0)
+        val actual = ComplexNumber(imag = 1.0) - ComplexNumber(imag = 2.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
+    @Test
+    fun testSubtractionWithRealAndImaginaryParts() {
+        val expected = ComplexNumber(real = -2.0, imag = -2.0)
+        val actual = ComplexNumber(real = 1.0, imag = 2.0) - ComplexNumber(real = 3.0, imag = 4.0)
+        assertComplexNumbersEqual(expected, actual)
+    }
+
 //    @Ignore
 //    @Test
 //    fun testMultiplicationWithPurelyRealNumbers() {
