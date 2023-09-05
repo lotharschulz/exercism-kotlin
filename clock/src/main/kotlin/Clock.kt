@@ -20,7 +20,7 @@ class Clock(private val hours: Int = 0, private val minutes: Int = 0) {
 
     private fun Int.padZeroChars() = toString().padStart(length = 2, padChar = '0')
 
-    override fun toString() = "${hours.padZeroChars()}:${minutes.padZeroChars()}"
+    override fun toString() = "${h.padZeroChars()}:${m.padZeroChars()}"
 
     fun subtract(minutes: Int) {
         TODO("Implement the function to complete the task")
