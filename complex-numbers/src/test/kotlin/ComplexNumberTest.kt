@@ -162,29 +162,26 @@ class ComplexNumberTest {
         assertComplexNumbersEqual(expected, actual)
     }
 
-//    @Ignore
-//    @Test
-//    fun testRealPartOfPurelyRealNumber() {
-//        val expected = 1.0
-//        val actual = ComplexNumber(real = 1.0).real
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testRealPartOfPurelyImaginaryNumber() {
-//        val expected = 0.0
-//        val actual = ComplexNumber(imag = 1.0).real
-//        assertDoublesEqual(expected, actual)
-//    }
-//
-//    @Ignore
-//    @Test
-//    fun testRealPartOfNumberWithRealAndImaginaryParts() {
-//        val expected = 1.0
-//        val actual = ComplexNumber(real = 1.0, imag = 2.0).real
-//        assertDoublesEqual(expected, actual)
-//    }
+    @Test
+    fun testRealPartOfPurelyRealNumber() {
+        val expected = 1.0
+        val actual = ComplexNumber(real = 1.0).real
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testRealPartOfPurelyImaginaryNumber() {
+        val expected = 0.0
+        val actual = ComplexNumber(imag = 1.0).real
+        assertDoublesEqual(expected, actual)
+    }
+
+    @Test
+    fun testRealPartOfNumberWithRealAndImaginaryParts() {
+        val expected = 1.0
+        val actual = ComplexNumber(real = 1.0, imag = 2.0).real
+        assertDoublesEqual(expected, actual)
+    }
 //
 //    @Ignore
 //    @Test
