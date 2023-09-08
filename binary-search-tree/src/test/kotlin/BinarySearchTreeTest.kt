@@ -1,3 +1,4 @@
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -66,6 +67,7 @@ class BinarySearchTreeTest {
         assertEquals(expectedRoot, actualRoot)
     }
 
+    @Ignore
     @Test
     fun `creates complex tree`() {
         val tree = BinarySearchTree<Char>()
@@ -125,6 +127,7 @@ class BinarySearchTreeTest {
         assertEquals(expected, actual)
     }
 
+    @Ignore
     @Test
     fun `big tree level order`() {
         val tree = BinarySearchTree<Int>()

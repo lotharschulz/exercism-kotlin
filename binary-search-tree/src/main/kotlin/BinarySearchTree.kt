@@ -14,7 +14,12 @@ class BinarySearchTree<T : Comparable<T>> {
     }
 
     fun asSortedList(): List<T> {
-        TODO("Delete this statement and write your own implementation.")
+        return sortNode(root!!)
+    }
+
+    private fun sortNode(node: Node<T>?): List<T> = when {
+        node == null -> emptyList()
+        else -> sortNode(node.left) + listOf(node.data) + sortNode(node.right)
     }
 
     fun asLevelOrderList(): List<T> {
