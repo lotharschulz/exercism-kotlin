@@ -1,3 +1,5 @@
+import java.util.SortedMap
+
 class BinarySearchTree<T : Comparable<T>> {
 
     data class Node<T>(val data: T, val left: Node<T>? = null, val right: Node<T>? = null)
@@ -23,6 +25,15 @@ class BinarySearchTree<T : Comparable<T>> {
     }
 
     fun asLevelOrderList(): List<T> {
-        TODO("Delete this statement and write your own implementation.")
+        val results = sortedMapOf<Int, List<T>>()
+        layer(results, node = root, level = 0)
+        return results.values.flatten()
+    }
+
+    private fun layer(results: SortedMap<Int, List<T>>, node: Node<T>?, level: Int) {
+        if (node == null) { return }
+        results[level] = results.getOrDefault(level, emptyList()) + listOf(node.data)
+        node.left?.run { layer(results, node = this, level = level + 1) }
+        node.right?.run { layer(results, node = this, level = level + 1) }
     }
 }
