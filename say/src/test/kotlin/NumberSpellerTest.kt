@@ -57,13 +57,11 @@ class NumberSpellerTest {
     fun `spell a big number`() = 987654321123
         .shouldSoundLike("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three")
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `numbers below zero are out of range`() {
         NumberSpeller().say(-1)
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun `numbers above 999,999,999,999 are out of range`() {
         NumberSpeller().say(1000000000000)
