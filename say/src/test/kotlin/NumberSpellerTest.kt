@@ -7,35 +7,27 @@ class NumberSpellerTest {
     @Test
     fun `0 as zero`() = 0.shouldSoundLike("zero")
 
-    @Ignore
     @Test
     fun `1 as one`() = 1.shouldSoundLike("one")
 
-    @Ignore
     @Test
     fun `14 as fourteen`() = 14.shouldSoundLike("fourteen")
 
-    @Ignore
     @Test
     fun `20 as twenty`() = 20.shouldSoundLike("twenty")
 
-    @Ignore
     @Test
     fun `22 as twenty-two`() = 22.shouldSoundLike("twenty-two")
 
-    @Ignore
     @Test
     fun `100 as one hundred`() = 100.shouldSoundLike("one hundred")
 
-    @Ignore
     @Test
     fun `123 as one hundred twenty-three`() = 123.shouldSoundLike("one hundred twenty-three")
 
-    @Ignore
     @Test
     fun `1000 as one thousand`() = 1000.shouldSoundLike("one thousand")
 
-    @Ignore
     @Test
     fun `1234 as one thousand two hundred thirty-four`() = 1234.shouldSoundLike("one thousand two hundred thirty-four")
 
