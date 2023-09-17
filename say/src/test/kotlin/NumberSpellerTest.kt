@@ -31,7 +31,6 @@ class NumberSpellerTest {
     @Test
     fun `1234 as one thousand two hundred thirty-four`() = 1234.shouldSoundLike("one thousand two hundred thirty-four")
 
-    @Ignore
     @Test
     fun `1000000 as one million`() = 1000000.shouldSoundLike("one million")
 
