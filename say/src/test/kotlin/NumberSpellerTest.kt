@@ -1,4 +1,3 @@
-import org.junit.Ignore
 import org.junit.Test
 import java.lang.IllegalArgumentException
 import kotlin.test.assertEquals
@@ -34,16 +33,13 @@ class NumberSpellerTest {
     @Test
     fun `1000000 as one million`() = 1000000.shouldSoundLike("one million")
 
-    @Ignore
     @Test
     fun `1002345 as one million two thousand three hundred forty-five`() =
         1002345.shouldSoundLike("one million two thousand three hundred forty-five")
 
-    @Ignore
     @Test
     fun `1000000000 as one billion`() = 1000000000.shouldSoundLike("one billion")
 
-    @Ignore
     @Test
     fun `spell a big number`() = 987654321123
         .shouldSoundLike("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three")
