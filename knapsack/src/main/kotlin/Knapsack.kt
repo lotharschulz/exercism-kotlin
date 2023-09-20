@@ -1,26 +1,14 @@
 data class Item(val weight: Int, val value: Int)
 
 fun knapsack(maximumWeight: Int, items: List<Item>): Int {
-    val sortedItems = items.sortedWith(compareBy({ it.value }, { it.value })).reversed()
-
-    /*
-    println("sortedItems: $sortedItems")
-    sortedItems.forEachIndexed { index, item ->
-        val aggregatedSublistWeight = sortedItems.subList(0, index).map { it.weight }.sum()
-        val aggregatedSublistValue = sortedItems.subList(0, index).map { it.value }.sum()
-        println("aggregatedSublistWeight: $aggregatedSublistWeight")
-        println("aggregatedSublistValue: $aggregatedSublistValue")
-        if ()
+    if (maximumWeight == 0) {
+        return 0
     }
-    */
-    var aggregatedWeight = 0
-    var aggregatedValue = 0
-    for(item in sortedItems) {
-        aggregatedWeight += item.weight
-        aggregatedValue += item.value
-        if (aggregatedWeight > maximumWeight) {
-            return aggregatedValue - item.value
-        }
+    var maxValue = 0
+    items.filter { it.weight <= maximumWeight }.forEach { item ->
+        val subList = items.toList().filter { it != item }
+        val attempt = item.value + knapsack(maximumWeight - item.weight, subList)
+        maxValue = maxOf(maxValue, attempt)
     }
-    return 0
+    return maxValue
 }
