@@ -19,7 +19,7 @@ class KnapsackTest {
             Item(2, 5),
             Item(2, 5),
             Item(2, 5),
-            Item(10, 21)
+            Item(10, 21),
         )
         assertEquals(21, knapsack(10, items))
     }
@@ -31,7 +31,7 @@ class KnapsackTest {
             Item(2, 20),
             Item(2, 20),
             Item(2, 20),
-            Item(10, 50)
+            Item(10, 50),
         )
         assertEquals(80, knapsack(10, items))
     }
@@ -42,7 +42,7 @@ class KnapsackTest {
             Item(5, 10),
             Item(4, 40),
             Item(6, 30),
-            Item(4, 50)
+            Item(4, 50),
         )
         assertEquals(90, knapsack(10, items))
     }
@@ -57,7 +57,7 @@ class KnapsackTest {
             Item(25, 70),
             Item(3, 8),
             Item(2, 5),
-            Item(2, 5)
+            Item(2, 5),
         )
         assertEquals(900, knapsack(104, items))
     }
@@ -79,7 +79,7 @@ class KnapsackTest {
             Item(113, 214),
             Item(115, 221),
             Item(118, 229),
-            Item(120, 240)
+            Item(120, 240),
         )
         assertEquals(1458, knapsack(750, items))
     }
