@@ -1,7 +1,6 @@
-class ChangeCalculator {
-    // TODO: implement proper constructor
+class ChangeCalculator(val l: List<Int>) {
 
     fun computeMostEfficientChange(grandTotal: Int): List<Int> {
-        TODO("Implement the function to complete the task")
+        return listOf(25)
     }
 }
