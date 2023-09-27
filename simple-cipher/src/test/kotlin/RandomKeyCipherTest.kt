@@ -11,19 +11,19 @@ class RandomKeyCipherTest {
         assertEquals(key.substring(0, 10), encode("aaaaaaaaaa"))
     }
 
-    @Ignore
+    
     @Test
     fun `can decode`() = with(Cipher()) {
         assertEquals("aaaaaaaaaa", decode(key.substring(0, 10)))
     }
 
-    @Ignore
+    
     @Test
     fun `key is made only of lowercase letters`() {
         assertTrue(Cipher().key.matches(Regex("[a-z]+")))
     }
 
-    @Ignore
+    
     @Test
     fun `is reversible`() {
         val plainText = "abcdefghij"
@@ -32,13 +32,13 @@ class RandomKeyCipherTest {
 
     // extra tests
 
-    @Ignore
+    
     @Test
     fun `default key is of length 100`() {
         assertEquals(100, Cipher().key.length)
     }
 
-    @Ignore
+    
     @Test
     fun `two default generated keys differs`() {
         assertNotEquals(Cipher().key, Cipher().key)
