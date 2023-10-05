@@ -1,5 +1,5 @@
 fun <T> List<T>.customAppend(list: List<T>): List<T> {
-    TODO("Implement this function to complete the task")
+    return emptyList()
 }
 
 fun List<Any>.customConcat(): List<Any> {

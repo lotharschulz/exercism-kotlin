@@ -8,7 +8,7 @@ class ListExtensionsTest {
     fun `append - empty lists`() =
         assertEquals(
             emptyList(),
-            emptyList<Int>().customAppend(emptyList())
+            emptyList<Int>().customAppend(emptyList()),
         )
 
     @Ignore
@@ -16,7 +16,7 @@ class ListExtensionsTest {
     fun `append - list to empty list`() =
         assertEquals(
             listOf('1', '2', '3', '4'),
-            emptyList<Char>().customAppend(listOf('1', '2', '3', '4'))
+            emptyList<Char>().customAppend(listOf('1', '2', '3', '4')),
         )
 
     @Ignore
@@ -24,7 +24,7 @@ class ListExtensionsTest {
     fun `append - non-empty lists`() =
         assertEquals(
             listOf("1", "2", "2", "3", "4", "5"),
-            listOf("1", "2").customAppend(listOf("2", "3", "4", "5"))
+            listOf("1", "2").customAppend(listOf("2", "3", "4", "5")),
         )
 
     @Ignore
@@ -32,7 +32,7 @@ class ListExtensionsTest {
     fun `concatenate - empty list`() =
         assertEquals(
             emptyList<Char>(),
-            emptyList<Any>().customConcat()
+            emptyList<Any>().customConcat(),
         )
 
     @Ignore
@@ -44,8 +44,8 @@ class ListExtensionsTest {
                 listOf('1', '2'),
                 listOf('3'),
                 emptyList(),
-                listOf('4', '5', '6')
-            ).customConcat()
+                listOf('4', '5', '6'),
+            ).customConcat(),
         )
 
     @Ignore
@@ -56,18 +56,18 @@ class ListExtensionsTest {
             listOf(
                 listOf(
                     listOf('1'),
-                    listOf('2')
+                    listOf('2'),
                 ),
                 listOf(
-                    listOf('3')
+                    listOf('3'),
                 ),
                 listOf(
-                    emptyList()
+                    emptyList(),
                 ),
                 listOf(
-                    listOf('4', '5', '6')
-                )
-            ).customConcat()
+                    listOf('4', '5', '6'),
+                ),
+            ).customConcat(),
         )
 
     @Ignore
@@ -75,15 +75,16 @@ class ListExtensionsTest {
     fun `filter - empty list`() =
         assertEquals(
             emptyList(),
-            emptyList<Int>().customFilter { it % 2 == 1 })
-
+            emptyList<Int>().customFilter { it % 2 == 1 },
+        )
 
     @Ignore
     @Test
     fun `filter - non-empty list`() =
         assertEquals(
             listOf(1, 3, 5),
-            listOf(1, 2, 3, 5).customFilter { it % 2 == 1 })
+            listOf(1, 2, 3, 5).customFilter { it % 2 == 1 },
+        )
 
     @Ignore
     @Test
@@ -98,21 +99,23 @@ class ListExtensionsTest {
     fun `map - empty list`() =
         assertEquals(
             emptyList(),
-            emptyList<Int>().customMap { it -> it + 1 })
+            emptyList<Int>().customMap { it -> it + 1 },
+        )
 
     @Ignore
     @Test
     fun `map - non-empty list`() =
         assertEquals(
             listOf(2, 4, 6, 8),
-            listOf(1, 3, 5, 7).customMap { it -> it + 1 })
+            listOf(1, 3, 5, 7).customMap { it -> it + 1 },
+        )
 
     @Ignore
     @Test
     fun `fold left - empty list`() =
         assertEquals(
             2.0,
-            emptyList<Int>().customFoldLeft(2.0, Double::times)
+            emptyList<Int>().customFoldLeft(2.0, Double::times),
         )
 
     @Ignore
@@ -120,7 +123,7 @@ class ListExtensionsTest {
     fun `fold left - direction independent function`() =
         assertEquals(
             15,
-            listOf(1, 2, 3, 4).customFoldLeft(5, Int::plus)
+            listOf(1, 2, 3, 4).customFoldLeft(5, Int::plus),
         )
 
     @Ignore
@@ -128,7 +131,7 @@ class ListExtensionsTest {
     fun `fold left - direction dependent function`() =
         assertEquals(
             0,
-            listOf(2, 5).customFoldLeft(5, Int::div)
+            listOf(2, 5).customFoldLeft(5, Int::div),
         )
 
     @Ignore
@@ -136,7 +139,7 @@ class ListExtensionsTest {
     fun `fold right - empty list`() =
         assertEquals(
             2.0,
-            emptyList<Double>().customFoldRight(2.0, Double::times)
+            emptyList<Double>().customFoldRight(2.0, Double::times),
         )
 
     @Ignore
@@ -144,7 +147,7 @@ class ListExtensionsTest {
     fun `fold right - direction independent function`() =
         assertEquals(
             15,
-            listOf(1, 2, 3, 4).customFoldRight(5, Int::plus)
+            listOf(1, 2, 3, 4).customFoldRight(5, Int::plus),
         )
 
     @Ignore
@@ -152,7 +155,7 @@ class ListExtensionsTest {
     fun `fold right - direction dependent function`() =
         assertEquals(
             2,
-            listOf(2, 5).customFoldRight(5, Int::div)
+            listOf(2, 5).customFoldRight(5, Int::div),
         )
 
     @Ignore
@@ -160,7 +163,7 @@ class ListExtensionsTest {
     fun `reverse - empty list`() =
         assertEquals(
             emptyList(),
-            emptyList<Int>().customReverse()
+            emptyList<Int>().customReverse(),
         )
 
     @Ignore
@@ -168,7 +171,7 @@ class ListExtensionsTest {
     fun `reverse - non-empty list`() =
         assertEquals(
             listOf('7', '5', '3', '1'),
-            listOf('1', '3', '5', '7').customReverse()
+            listOf('1', '3', '5', '7').customReverse(),
         )
 
     @Ignore
@@ -179,14 +182,13 @@ class ListExtensionsTest {
                 listOf('4', '5', '6'),
                 emptyList<Char>(),
                 '3',
-                listOf('1', '2')
+                listOf('1', '2'),
             ),
             listOf(
                 listOf('1', '2'),
                 '3',
                 emptyList<Char>(),
-                listOf('4', '5', '6')
-            ).customReverse()
+                listOf('4', '5', '6'),
+            ).customReverse(),
         )
-
 }
