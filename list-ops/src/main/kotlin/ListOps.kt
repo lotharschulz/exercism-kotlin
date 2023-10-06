@@ -1,29 +1,49 @@
 fun <T> List<T>.customAppend(list: List<T>): List<T> {
-    return emptyList()
+    val result = this.toMutableList()
+    list.forEach { result.add(it) }
+    return result.toList()
 }
 
-fun List<Any>.customConcat(): List<Any> {
-    TODO("Implement this function to complete the task")
-}
+fun List<*>.customConcat(): List<*> =
+    customFoldLeft(emptyList<Any?>()) { acc, entity ->
+        when (entity) {
+            is List<*> -> acc.customAppend(entity.customConcat())
+            else -> acc + entity
+        }
+    }
 
-fun <T> List<T>.customFilter(predicate: (T) -> Boolean): List<T> {
-    TODO("Implement this function to complete the task")
-}
+fun <T> List<T>.customFilter(predicate: (T) -> Boolean): List<T> =
+    customFoldLeft(emptyList()) { acc, entity ->
+        when {
+            predicate(entity) -> acc + entity
+            else -> acc
+        }
+    }
 
-val List<Any>.customSize: Int get() = TODO("Implement this getter to complete the task")
+val List<Any>.customSize: Int get() = this.size
 
 fun <T, U> List<T>.customMap(transform: (T) -> U): List<U> {
-    TODO("Implement this function to complete the task")
+    val result = mutableListOf<U>()
+    this.forEach { result.add(transform(it)) }
+    return result.toList()
 }
 
-fun <T, U> List<T>.customFoldLeft(initial: U, f: (U, T) -> U): U {
-    TODO("Implement this function to complete the task")
-}
+tailrec fun <T, U> List<T>.customFoldLeft(initial: U, f: (U, T) -> U): U =
+    when (this) {
+        emptyList<T>() -> initial
+        else -> this.drop(1).customFoldLeft(f(initial, this.first()), f)
+    }
 
 fun <T, U> List<T>.customFoldRight(initial: U, f: (T, U) -> U): U {
-    TODO("Implement this function to complete the task")
+    var res = initial
+    this.reversed().forEach { item ->
+        res = f(item, res)
+    }
+    return res
 }
 
-fun <T> List<T>.customReverse(): List<T> {
-    TODO("Implement this function to complete the task")
-}
+fun <T> List<T>.customReverse(): List<T> =
+    customFoldRight(mutableListOf()) { item, acc ->
+        acc.add(item)
+        acc
+    }
