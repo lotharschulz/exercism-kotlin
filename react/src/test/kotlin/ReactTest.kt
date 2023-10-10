@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import kotlin.test.assertEquals
@@ -13,7 +12,6 @@ class ReactTest {
         assertEquals(10, input.value)
     }
 
-    @Ignore
     @Test
     fun inputCellsValueCanBeSet() {
         val reactor = Reactor<Int>()
@@ -22,7 +20,6 @@ class ReactTest {
         assertEquals(20, input.value)
     }
 
-    @Ignore
     @Test
     fun computeCellsCalculateInitialValue() {
         val reactor = Reactor<Int>()
@@ -31,7 +28,6 @@ class ReactTest {
         assertEquals(2, output.value)
     }
 
-    @Ignore
     @Test
     fun computeCellsTakeInputsInTheRightOrder() {
         val reactor = Reactor<Int>()
@@ -41,7 +37,6 @@ class ReactTest {
         assertEquals(21, output.value)
     }
 
-    @Ignore
     @Test
     fun computeCellsUpdateValueWhenDependenciesAreChanged() {
         val reactor = Reactor<Int>()
@@ -51,7 +46,6 @@ class ReactTest {
         assertEquals(4, output.value)
     }
 
-    @Ignore
     @Test
     fun computeCellsCanDependOnOtherComputeCells() {
         val reactor = Reactor<Int>()
@@ -65,7 +59,6 @@ class ReactTest {
         assertEquals(96, output.value)
     }
 
-    @Ignore
     @Test
     fun computeCellsFireCallbacks() {
         val reactor = Reactor<Int>()
@@ -79,7 +72,6 @@ class ReactTest {
         assertEquals(listOf(4), vals)
     }
 
-    @Ignore
     @Test
     fun callbacksOnlyFireOnChange() {
         val reactor = Reactor<Int>()
@@ -96,7 +88,6 @@ class ReactTest {
         assertEquals(listOf(222), vals)
     }
 
-    @Ignore
     @Test
     fun callbacksCanBeAddedAndRemoved() {
         val reactor = Reactor<Int>()
@@ -121,7 +112,6 @@ class ReactTest {
         assertEquals(listOf(42), vals3)
     }
 
-    @Ignore
     @Test
     fun removingACallbackMultipleTimesDoesntInterfereWithOtherCallbacks() {
         val reactor = Reactor<Int>()
@@ -142,7 +132,6 @@ class ReactTest {
         assertEquals(listOf(3), vals2)
     }
 
-    @Ignore
     @Test
     fun callbacksShouldOnlyBeCalledOnceEvenIfMultipleDependenciesChange() {
         val reactor = Reactor<Int>()
@@ -159,7 +148,6 @@ class ReactTest {
         assertEquals(listOf(10), vals)
     }
 
-    @Ignore
     @Test
     fun callbacksShouldNotBeCalledIfDependenciesChangeButOutputValueDoesntChange() {
         val reactor = Reactor<Int>()
@@ -177,7 +165,6 @@ class ReactTest {
 
         assertEquals(listOf<Int>(), vals)
     }
-
 }
 
 /*
@@ -196,18 +183,17 @@ class ReactAdderTest(val input: Input, val expected: Expected) {
         @JvmStatic
         @Parameterized.Parameters(name = "{index}: {0} = {1}")
         fun data() = listOf(
-                arrayOf(Input(a=false, b=false, carryIn=false), Expected(carryOut=false, sum=false)),
-                arrayOf(Input(a=false, b=false, carryIn=true),  Expected(carryOut=false, sum=true)),
-                arrayOf(Input(a=false, b=true,  carryIn=false), Expected(carryOut=false, sum=true)),
-                arrayOf(Input(a=false, b=true,  carryIn=true),  Expected(carryOut=true,  sum=false)),
-                arrayOf(Input(a=true,  b=false, carryIn=false), Expected(carryOut=false, sum=true)),
-                arrayOf(Input(a=true,  b=false, carryIn=true),  Expected(carryOut=true,  sum=false)),
-                arrayOf(Input(a=true,  b=true,  carryIn=false), Expected(carryOut=true,  sum=false)),
-                arrayOf(Input(a=true,  b=true,  carryIn=true),  Expected(carryOut=true,  sum=true))
+            arrayOf(Input(a = false, b = false, carryIn = false), Expected(carryOut = false, sum = false)),
+            arrayOf(Input(a = false, b = false, carryIn = true), Expected(carryOut = false, sum = true)),
+            arrayOf(Input(a = false, b = true, carryIn = false), Expected(carryOut = false, sum = true)),
+            arrayOf(Input(a = false, b = true, carryIn = true), Expected(carryOut = true, sum = false)),
+            arrayOf(Input(a = true, b = false, carryIn = false), Expected(carryOut = false, sum = true)),
+            arrayOf(Input(a = true, b = false, carryIn = true), Expected(carryOut = true, sum = false)),
+            arrayOf(Input(a = true, b = true, carryIn = false), Expected(carryOut = true, sum = false)),
+            arrayOf(Input(a = true, b = true, carryIn = true), Expected(carryOut = true, sum = true)),
         )
     }
 
-    @Ignore
     @Test
     fun test() {
         val reactor = Reactor<Boolean>()
@@ -222,7 +208,6 @@ class ReactAdderTest(val input: Input, val expected: Expected) {
         val aAndB = reactor.ComputeCell(a, b) { (x, y) -> x && y }
         val carryOut = reactor.ComputeCell(aXorBAndCin, aAndB) { (x, y) -> x || y }
 
-        assertEquals(expected, Expected(sum=sum.value, carryOut=carryOut.value))
+        assertEquals(expected, Expected(sum = sum.value, carryOut = carryOut.value))
     }
-
 }
